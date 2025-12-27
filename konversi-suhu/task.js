@@ -1,6 +1,5 @@
 let counter = 0
 let temp, tempSource, convertTo
-// nilai awal
 process.stdout.write('Masukan nilai : ');
 process.stdin.on('data', (data) => {
     let start = data.toString().trim()
@@ -13,18 +12,96 @@ process.stdin.on('data', (data) => {
         tempSource = start
         counter++
     } else if(counter === 2){
-        process.stdout.write("\n \n \n \nProcess ... \n \n \n \n");
+        process.stdout.write("\n \n \n \n Process ... \n \n \n \n");
         convertTo = start
 
-        console.log(typeof(temp));
-        console.log(typeof(tempSource));
-        console.log(typeof(convertTo));
-        
-
-        console.log(temp, tempSource, convertTo)
-        process.stdout.write(`Hasil konversi ${temp} ${tempSource} ke ${convertTo} adalah $ `);
-
         if (tempSource == "celcius") {
+            switch (convertTo) {
+                case "celcius": 
+                {
+                    console.log(`Tidak bisa konversi ${tempSource} ke ${convertTo}`);
+                    break;
+                }
+                case "fahrenheit": 
+                {
+                    const tempResult = (temp * 9/5) + 32
+                    console.log(`Hasil konversi ${temp} ${tempSource} ke ${convertTo} adalah ${tempResult}`);
+                    break;
+                }
+                case "reamure":
+                {
+                    const tempResult = temp * 4 / 5
+                    console.log(`Hasil konversi ${temp} ${tempSource} ke ${convertTo} adalah ${tempResult}`);
+                    break;    
+                }
+                case "kelvin":
+                {
+                    const tempResult = temp + 273.15
+                    console.log(`Hasil konversi ${temp} ${tempSource} ke ${convertTo} adalah ${tempResult}`);
+                    break;    
+                }
+            }
+        } else if (tempSource == "fahrenheit"){
+            switch (convertTo) {
+                case "celcius": 
+                {
+                    const tempResult = temp - 32 * 5/9
+                    console.log(`Hasil konversi ${temp} ${tempSource} ke ${convertTo} adalah ${tempResult}`);
+                    break;
+                }
+                case "fahrenheit": 
+                {
+                    console.log(`Tidak bisa konversi ${tempSource} ke ${convertTo}`);
+                    break;
+                }
+                case "reamure":
+                {
+                    // 32 * 4/9
+                    const tempResult = (temp - 32) * 4/9
+                    console.log(`Hasil konversi ${temp} ${tempSource} ke ${convertTo} adalah ${tempResult}`);
+                    break;    
+                }
+                case "kelvin":
+                {
+                    // (4°F + 459.67) * (5/9)
+                    const tempResult = (temp + 459) * (5/9)
+                    console.log(`Hasil konversi ${temp} ${tempSource} ke ${convertTo} adalah ${tempResult}`);
+                    break;    
+                }
+            }
+        } else if (tempSource == "reamure"){
+            switch (convertTo) {
+                case "celcius": 
+                {
+                    // R * (5/4) = 37.5°C
+                    const tempResult = temp * (5/4)
+                    console.log(`Hasil konversi ${temp} ${tempSource} ke ${convertTo} adalah ${tempResult}`);
+                    break;
+                }
+                case "fahrenheit": 
+                {
+                    // R * (9/4) + 32
+                    const tempResult = temp * (9/4) + 32
+                    console.log(`Hasil konversi ${temp} ${tempSource} ke ${convertTo} adalah ${tempResult}`);
+                    break;
+                }
+                case "reamure":
+                {
+                    console.log(`Tidak bisa konversi ${tempSource} ke ${convertTo}`);
+                    break;    
+                }
+                case "kelvin":
+                {
+                    // R * (5/4) + 273.15
+                    const tempResult = temp * (5/4) + 273.15
+                    console.log(`Hasil konversi ${temp} ${tempSource} ke ${convertTo} adalah ${tempResult}`);
+                    break;    
+                }
+            }
+        } else if (tempSource == "kelvin"){
+
+        } else {
+            console.log("masukan derajat \n suhu yang benar!");
             
         }
 
