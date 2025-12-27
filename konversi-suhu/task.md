@@ -6,28 +6,13 @@
     flowchart TB
         Start@{ shape: circ, label: "Start"}
 
-        firstPrint@{ shape: rect, label: "Output: ''Masukan nilai : ''"}
-        data@{ shape: rect, label: "process.stdin.on('data', (data)...)"}
-        temp@{ shape: lean-r, label: "input: Number(data.toString().trim())"}
-        tempSource@{ shape: rect, label: "tempSource = Farenheit"}
-        convertTo@{ shape: rect, label:  "convertTo = Celcius"}
-
-        %% CELCIUS START
-        celcius@{ shape: diamond, label:  "tempSource == Celcius"}
-        celciusFalse@{ shape: lean-r, label:  "output : ''error''"}
-        celciusTrue@{ shape: rect, label:  "temp = temp * (9/5) + 32"}
+        counter@{ shape: lean-r, label: "input: counter"}
+        temp@{ shape: lean-r, label: "input: counter"}
+        tempSource@{ shape: lean-r, label: "input: tempSource"}
+        convertTo@{ shape: lean-r, label: "input: convertTo"}
+        firstPrint@{ shape: lean-r, label: "Output: ''Masukan nilai : ''"}
         
-
-
-
-        %% SAMBUNGAN START
-        celcius --> |false| celciusFalse
-        celcius --> |true| celciusTrue
-        %% SAMBUNGAN END
-
-        %% CELCIUS END
-        Start --> temp --> tempSource --> ConvertTo
-
+        Start-->counter-->temp-->tempSource-->convertTo-->firstPrint
 
         Stop@{ shape: dbl-circ, label: "Stop"}
 

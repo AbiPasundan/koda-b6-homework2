@@ -1,50 +1,34 @@
-// homework2
+let counter = 0
+let temp, tempSource, convertTo
+// nilai awal
 process.stdout.write('Masukan nilai : ');
 process.stdin.on('data', (data) => {
-    
-    let temp = Number(data.toString().trim())
-    console.log(typeof temp);
-    console.log(temp);
-    
-    const tempSource = "Celcius"
-    const convertTo = "Farenheit"
+    let start = data.toString().trim()
+    if(counter === 0){
+        process.stdout.write('Masukan temperature : ');
+        temp = Number(start)
+        counter++
+    } else if(counter === 1){
+        process.stdout.write('konversi ke : ');
+        tempSource = start
+        counter++
+    } else if(counter === 2){
+        process.stdout.write("\n \n \n \nProcess ... \n \n \n \n");
+        convertTo = start
 
-    if (tempSource == "Celcius") {
-        // do somthing
-        if (convertTo == "Celcius") {
-            console.log("error");
-        } else if (convertTo == "Farenheit") {
-            temp = temp * (9/5) + 32
-            console.log(`Celcius ke Farenheit adalah ${temp}`);
-        } else if (convertTo == "Reamure") {
-            temp = temp * 4 / 5
-            console.log(`Celcius ke Reamure adalah ${temp}`);
-        } else if(convertTo == "Kelvin") {
-            temp = temp + 273
-            console.log(`Celcius ke Kelvin adalah ${temp}`);
+        console.log(typeof(temp));
+        console.log(typeof(tempSource));
+        console.log(typeof(convertTo));
+        
+
+        console.log(temp, tempSource, convertTo)
+        process.stdout.write(`Hasil konversi ${temp} ${tempSource} ke ${convertTo} adalah $ `);
+
+        if (tempSource == "celcius") {
+            
         }
-        return process.exit();
-    } else if(tempSource == "Farenheit"){
-        // do somthing
-    }
-    else if(tempSource == "Reamure"){
-        // do somthing
-    }
-    else if(tempSource == "Kelvin"){
-        // do somthing
-    }else {
-        // do somthing
-    }
 
-});
+        process.exit()
+    } 
 
-// const celcius = 40
-// const celciusToFarenheit = (celcius * 9/5) + 32
-// const celciusToReamure = celcius * 4 / 5
-// const celciusToKelvin = celcius + 273
-// // c to f
-// console.log(`Hasil konversi suhu dari celcius ke Farenheit adalah ${celciusToFarenheit}`);
-// // c to r
-// console.log(`Hasil konversi suhu dari celcius ke Reamure adalah ${celciusToReamure}`);
-// // c to k
-// console.log(`Hasil konversi suhu dari celcius ke Kelvin adalah ${celciusToKelvin}`);
+})
