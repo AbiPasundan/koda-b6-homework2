@@ -51,8 +51,24 @@
         ctkPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
 
         %%tempSource == fahrenheit  
-        %%fahrenheit@{ shape: diamond, label: "tempSource === ''fahrenheit''"}
-        %%tempSource == fahrenheit  
+        fahrenheit@{ shape: diamond, label: "tempSource === ''fahrenheit''"}
+        %%ftc
+        ftc@{ shape: diamond, label: "convertTo === ''celcius''"}
+        ftcTrue@{ shape: rect, label: "tempResult = temp - 32 * 5/9"}
+        ftcPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        %%ftf
+        ftf@{ shape: diamond, label: "convertTo === ''fahrenheit''"}
+        ftfPrint@{ shape: lean-r, label: "output ''Tidak bisa konversi ''temp'' ''tempSource'' ke ''convertTo'' "}
+        %% ftr
+        ftr@{ shape: diamond, label: "convertTo === ''reamure''"}
+        ftrTrue@{ shape: rect, label: "tempResult = (temp - 32) * 4/9"}
+        ftrPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        %% ftk
+        ftk@{ shape: diamond, label: "convertTo === ''kelvin''"}
+        ftkTrue@{ shape: rect, label: "tempResult = (temp + 459) * (5/9)"}
+        ftkPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+
+        %%tempSource == reamure
         %%reamure@{ shape: diamond, label: "tempSource === ''reamure''"}
         %%tempSource == kelvin  
         %%kelvin@{ shape: diamond, label: "tempSource === ''kelvin''"}
@@ -66,7 +82,7 @@
         counter0-->|false|counter1-->|true|counter1True-->temp1-->counterInc1-->counter1
         %% sambungan celcius
         %% ctc
-        counter1-->|false|celcius-->ctc-->|true|ctcPrint-->processExit-->Stop
+        counter1-->|false|celcius-->|true|ctc-->|true|ctcPrint-->processExit-->Stop
         %%ctf
         ctc-->|false|ctf-->|true|ctfTrue-->ctfPrint-->processExit
         %%ctr
@@ -75,8 +91,16 @@
         ctr-->|false|ctk-->|true|ctkTrue-->ctkPrint-->processExit
         ctk-->|false|processExit
 
-        %% Exit
-        %%counter1-->|false|processExit-->Stop
+        %% sambungan fahrenheit
+        %% ftc
+        celcius-->|false|fahrenheit-->ftc-->|true|ftcTrue-->ftcPrint-->processExit
+        %% ftf
+        ftc-->|false|ftf-->|true|ftfPrint-->processExit
+        %% ftr
+        ftf-->|false|ftr-->|true|ftrTrue-->ftrPrint-->processExit
+        %% ftk
+        ftr-->|false|ftk-->|true|ftkTrue-->ftkPrint-->processExit
+
 
         Stop@{ shape: dbl-circ, label: "Stop"}
 
