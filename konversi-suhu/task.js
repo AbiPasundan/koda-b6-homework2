@@ -14,7 +14,6 @@ process.stdin.on('data', (data) => {
     } else if(counter === 2){
         process.stdout.write("\n \n \n \n Process ... \n \n \n \n");
         convertTo = start
-
         if (tempSource == "celcius") {
             switch (convertTo) {
                 case "celcius": 
@@ -99,7 +98,34 @@ process.stdin.on('data', (data) => {
                 }
             }
         } else if (tempSource == "kelvin"){
-
+            switch (convertTo) {
+                case "celcius": 
+                {
+                    // K − 273,15 
+                    const tempResult = temp - 273.15
+                    console.log(`Hasil konversi ${temp} ${tempSource} ke ${convertTo} adalah ${tempResult}`);
+                    break;
+                }
+                case "fahrenheit": 
+                {
+                    // K * (9/5)- 459.67
+                    const tempResult = temp * (9/5) - 459.67
+                    console.log(`Hasil konversi ${temp} ${tempSource} ke ${convertTo} adalah ${tempResult}`);
+                    break;
+                }
+                case "reamure":
+                {
+                    // K - 273.15) *(4/5)
+                    const tempResult = temp - 273.15 * (4/5)
+                    console.log(`Hasil konversi ${temp} ${tempSource} ke ${convertTo} adalah ${tempResult}`);
+                    break;    
+                }
+                case "kelvin":
+                {
+                    console.log(`Tidak bisa konversi ${tempSource} ke ${convertTo}`);
+                    break;    
+                }
+            }
         } else {
             console.log("masukan derajat \n suhu yang benar!");
             

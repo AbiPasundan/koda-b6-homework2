@@ -40,66 +40,66 @@
         %%ctf
         ctf@{ shape: diamond, label: "convertTo === ''fahrenheit''"}
         ctfTrue@{ shape: rect, label: "tempResult = (temp * 9/5) + 32"}
-        ctfPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        ctfPrint@{ shape: lean-r, label: "''Hasil konversi '' + temp + tempSource + '' ke '' + converTo + '' adalah '' + tempResult"}
         %%ctr
         ctr@{ shape: diamond, label: "convertTo === ''reamure''"}
         ctrTrue@{ shape: rect, label: "tempResult = temp * 4 / 5"}
-        ctrPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        ctrPrint@{ shape: lean-r, label: "''Hasil konversi '' + temp + tempSource + '' ke '' + converTo + '' adalah '' + tempResult"}
         %%ctk
         ctk@{ shape: diamond, label: "convertTo === ''kelvin''"}
         ctkTrue@{ shape: rect, label: "tempResult = temp + 273.15"}
-        ctkPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        ctkPrint@{ shape: lean-r, label: "''Hasil konversi '' + temp + tempSource + '' ke '' + converTo + '' adalah '' + tempResult"}
 
         %%tempSource == fahrenheit  
         fahrenheit@{ shape: diamond, label: "tempSource === ''fahrenheit''"}
         %%ftc
         ftc@{ shape: diamond, label: "convertTo === ''celcius''"}
         ftcTrue@{ shape: rect, label: "tempResult = temp - 32 * 5/9"}
-        ftcPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        ftcPrint@{ shape: lean-r, label: "''Hasil konversi '' + temp + tempSource + '' ke '' + converTo + '' adalah '' + tempResult"}
         %%ftf
         ftf@{ shape: diamond, label: "convertTo === ''fahrenheit''"}
         ftfPrint@{ shape: lean-r, label: "output ''Tidak bisa konversi ''temp'' ''tempSource'' ke ''convertTo'' "}
         %% ftr
         ftr@{ shape: diamond, label: "convertTo === ''reamure''"}
         ftrTrue@{ shape: rect, label: "tempResult = (temp - 32) * 4/9"}
-        ftrPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        ftrPrint@{ shape: lean-r, label: "''Hasil konversi '' + temp + tempSource + '' ke '' + converTo + '' adalah '' + tempResult"}
         %% ftk
         ftk@{ shape: diamond, label: "convertTo === ''kelvin''"}
         ftkTrue@{ shape: rect, label: "tempResult = (temp + 459) * (5/9)"}
-        ftkPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        ftkPrint@{ shape: lean-r, label: "''Hasil konversi '' + temp + tempSource + '' ke '' + converTo + '' adalah '' + tempResult"}
 
         %%tempSource == reamure
         reamure@{ shape: diamond, label: "tempSource === ''reamure''"}
         %% rtc
         rtc@{ shape: diamond, label: "convertTo === ''celcius''"}
         rtcTrue@{ shape: rect, label: "tempResult = temp * (5/4)"}
-        rtcPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        rtcPrint@{ shape: lean-r, label: "''Hasil konversi '' + temp + tempSource + '' ke '' + converTo + '' adalah '' + tempResult"}
         %% rtf
         rtf@{ shape: diamond, label: "convertTo === ''fahrenheit''"}
         rtfTrue@{ shape: rect, label: "tempResult = temp * (9/4) + 32"}
-        rtfPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        rtfPrint@{ shape: lean-r, label: "''Hasil konversi '' + temp + tempSource + '' ke '' + converTo + '' adalah '' + tempResult"}
         %% rtr
         rtr@{ shape: diamond, label: "convertTo === ''reamure''"}
         rtrPrint@{ shape: lean-r, label: "output ''Tidak bisa konversi ''temp'' ''tempSource'' ke ''convertTo'' "}
         %% rtk
         rtk@{ shape: diamond, label: "convertTo === ''kelvin''"}
         rtkTrue@{ shape: rect, label: "tempResult = temp * (5/4) + 273.15"}
-        rtkPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        rtkPrint@{ shape: lean-r, label: "''Hasil konversi '' + temp + tempSource + '' ke '' + converTo + '' adalah '' + tempResult"}
 
         %%tempSource == kelvin  
         kelvin@{ shape: diamond, label: "tempSource === ''kelvin''"}
         %% ktc
         ktc@{ shape: diamond, label: "convertTo === ''celcius''"}
         ktcTrue@{ shape: rect, label: "tempResult = temp * (5/4) + 273.15"}
-        ktcPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        ktcPrint@{ shape: lean-r, label: "''Hasil konversi '' + temp + tempSource + '' ke '' + converTo + '' adalah '' + tempResult"}
         %% ktf
         ktf@{ shape: diamond, label: "convertTo === ''fahrenheit''"}
         ktfTrue@{ shape: rect, label: "tempResult = temp * (9/5) - 459.67"}
-        ktfPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        ktfPrint@{ shape: lean-r, label: "''Hasil konversi '' + temp + tempSource + '' ke '' + converTo + '' adalah '' + tempResult"}
         %% ktr
         ktr@{ shape: diamond, label: "convertTo === ''reamure''"}
         ktrTrue@{ shape: rect, label: "tempResult = temp - 273.15 * (4/5)"}
-        ktrPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        ktrPrint@{ shape: lean-r, label: "''Hasil konversi '' + temp + tempSource + '' ke '' + converTo + '' adalah '' + tempResult"}
         %% ktk
         ktk@{ shape: diamond, label: "convertTo === ''kelvin''"}
         ktkPrint@{ shape: lean-r, label: "output ''Tidak bisa konversi ''temp'' ''tempSource'' ke ''convertTo'' "}
@@ -154,6 +154,9 @@
         %% ktk
         ktr-->|false|ktk-->|true|ktkPrint-->processExit
         ktk-->|false|processExit
+
+        %% end
+        kelvin-->|false|processExit
 
 
         Stop@{ shape: dbl-circ, label: "Stop"}
