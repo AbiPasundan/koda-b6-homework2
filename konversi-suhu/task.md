@@ -18,14 +18,23 @@
         starting@{ shape: lean-r, label: "start = data.toString().trim()"}
 
         %% CONDITION
+        %% Counter 0
         counter0@{ shape: diamond, label: "counter === 0"}
-        counter0True@{ shape: lean-r, label: "''Masukan temperature : ''"}
+        counter0True@{ shape: lean-r, label: "output: ''Masukan temperature : ''"}
         temp0@{ shape: lean-r, label: "temp = Number(start)"}
         counterInc0@{ shape: rect, label: "counter++"}
 
+        %% COUNTER 1
+        counter1@{ shape: diamond, label: "counter === 1"}
+        counter1True@{ shape: lean-r, label: "output: ''konversi ke : ''"}
+        temp1@{ shape: lean-r, label: "tempSource = start"}
+        counterInc1@{ shape: rect, label: "counter++"}
         %% temp = Number(start)
 
+        %% sambungna Start dan counter 0
         Start-->counter-->temperature-->tempSource-->convertTo-->firstPrint-->proccess-->starting-->counter0-->|true|counter0True-->temp0-->counterInc0-->starting
+        %% sambungna Start dan counter 1
+        counter0-->|false|counter1-->|true|counter1True-->temp1-->counterInc1
 
         Stop@{ shape: dbl-circ, label: "Stop"}
 
