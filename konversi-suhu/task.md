@@ -88,9 +88,21 @@
 
         %%tempSource == kelvin  
         kelvin@{ shape: diamond, label: "tempSource === ''kelvin''"}
+        %% ktc
         ktc@{ shape: diamond, label: "convertTo === ''celcius''"}
         ktcTrue@{ shape: rect, label: "tempResult = temp * (5/4) + 273.15"}
         ktcPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        %% ktf
+        ktf@{ shape: diamond, label: "convertTo === ''fahrenheit''"}
+        ktfTrue@{ shape: rect, label: "tempResult = temp * (9/5) - 459.67"}
+        ktfPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        %% ktr
+        ktr@{ shape: diamond, label: "convertTo === ''reamure''"}
+        ktrTrue@{ shape: rect, label: "tempResult = temp - 273.15 * (4/5)"}
+        ktrPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        %% ktk
+        ktk@{ shape: diamond, label: "convertTo === ''kelvin''"}
+        ktkPrint@{ shape: lean-r, label: "output ''Tidak bisa konversi ''temp'' ''tempSource'' ke ''convertTo'' "}
 
         %% EXIT BEFORE STOP
         processExit@{ shape: rect, label: "process.exit()"}
@@ -134,7 +146,14 @@
 
         %% sambungan kelvin
         %% ktc
-        reamure-->|false|kelvin
+        reamure-->|false|kelvin-->|true|ktc-->|true|ktcTrue-->ktcPrint-->processExit
+        %% ktf
+        ktc-->|false|ktf-->|true|ktfTrue-->ktfPrint-->processExit
+        %% ktr
+        ktf-->|false|ktr-->|true|ktrTrue-->ktrPrint-->processExit
+        %% ktk
+        ktr-->|false|ktk-->|true|ktkPrint-->processExit
+        ktk-->|false|processExit
 
 
         Stop@{ shape: dbl-circ, label: "Stop"}
