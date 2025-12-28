@@ -69,9 +69,28 @@
         ftkPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
 
         %%tempSource == reamure
-        %%reamure@{ shape: diamond, label: "tempSource === ''reamure''"}
+        reamure@{ shape: diamond, label: "tempSource === ''reamure''"}
+        %% rtc
+        rtc@{ shape: diamond, label: "convertTo === ''celcius''"}
+        rtcTrue@{ shape: rect, label: "tempResult = temp * (5/4)"}
+        rtcPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        %% rtf
+        rtf@{ shape: diamond, label: "convertTo === ''fahrenheit''"}
+        rtfTrue@{ shape: rect, label: "tempResult = temp * (9/4) + 32"}
+        rtfPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+        %% rtr
+        rtr@{ shape: diamond, label: "convertTo === ''reamure''"}
+        rtrPrint@{ shape: lean-r, label: "output ''Tidak bisa konversi ''temp'' ''tempSource'' ke ''convertTo'' "}
+        %% rtk
+        rtk@{ shape: diamond, label: "convertTo === ''kelvin''"}
+        rtkTrue@{ shape: rect, label: "tempResult = temp * (5/4) + 273.15"}
+        rtkPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
+
         %%tempSource == kelvin  
-        %%kelvin@{ shape: diamond, label: "tempSource === ''kelvin''"}
+        kelvin@{ shape: diamond, label: "tempSource === ''kelvin''"}
+        ktc@{ shape: diamond, label: "convertTo === ''celcius''"}
+        ktcTrue@{ shape: rect, label: "tempResult = temp * (5/4) + 273.15"}
+        ktcPrint@{ shape: lean-r, label: "''Hasil konversi ''temp + tempSource ''ke '' convertTo adalah'' tempResult"}
 
         %% EXIT BEFORE STOP
         processExit@{ shape: rect, label: "process.exit()"}
@@ -100,6 +119,22 @@
         ftf-->|false|ftr-->|true|ftrTrue-->ftrPrint-->processExit
         %% ftk
         ftr-->|false|ftk-->|true|ftkTrue-->ftkPrint-->processExit
+        ftk-->|false|processExit
+
+        %% sambingan remure
+        %% rtc
+        fahrenheit-->|false|reamure-->|true|rtc-->|true|rtcTrue-->rtcPrint-->processExit
+        %% rtf
+        rtc-->|false|rtf-->|true|rtfTrue-->rtfPrint-->processExit
+        %% rtr
+        rtf-->|false|rtr-->|true|rtrPrint-->processExit
+        %% rtk
+        rtr-->|false|rtk-->|true|rtkTrue-->rtkPrint-->processExit
+        rtk-->|false|processExit
+
+        %% sambungan kelvin
+        %% ktc
+        reamure-->|false|kelvin
 
 
         Stop@{ shape: dbl-circ, label: "Stop"}
