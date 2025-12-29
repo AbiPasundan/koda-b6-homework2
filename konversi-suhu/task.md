@@ -31,7 +31,7 @@
         counterInc1@{ shape: rect, label: "counter++"}
 
         %% temp === 'number'
-        tempNumb@{ shape: diamond, label: "temp === 'number'"}
+        tempNumb@{ shape: diamond, label: "temp !== NaN"}
         tempNumbFalse@{ shape: lean-r, label: "output: 'error'"}
         
         %%tempSource == celcius  
