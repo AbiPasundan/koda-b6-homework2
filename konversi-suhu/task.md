@@ -30,7 +30,9 @@
         temp1@{ shape: lean-r, label: "tempSource = start"}
         counterInc1@{ shape: rect, label: "counter++"}
 
-
+        %% temp === 'number'
+        tempNumb@{ shape: diamond, label: "temp === 'number'"}
+        tempNumbFalse@{ shape: lean-r, label: "output: 'error'"}
         
         %%tempSource == celcius  
         celcius@{ shape: diamond, label: "tempSource === ''celcius''"}
@@ -113,7 +115,8 @@
         counter0-->|false|counter1-->|true|counter1True-->temp1-->counterInc1-->counter1
         %% sambungan celcius
         %% ctc
-        counter1-->|false|celcius-->|true|ctc-->|true|ctcPrint-->processExit-->Stop
+        counter1-->|false|tempNumb-->|true|celcius-->|true|ctc-->|true|ctcPrint-->processExit-->Stop
+        tempNumb-->|false|tempNumbFalse-->processExit
         %%ctf
         ctc-->|false|ctf-->|true|ctfTrue-->ctfPrint-->processExit
         %%ctr
